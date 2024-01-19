@@ -1,12 +1,12 @@
 import React from 'react'
 
 export default function Puertas() {
-  const puertasOnOff = ['puertaCerrada.jpg', 'puertaAbierta.jpg']
+  const puertasCloseOpen = ['puertaCerrada.jpg', 'puertaAbierta.jpg']
 
   const [puertaSeleccionada, setPuertaSeleccionada] = React.useState(0)
 
   function puertaSiguiente() {
-    if (puertaSeleccionada < puertasOnOff.length - 1) {
+    if (puertaSeleccionada < puertasCloseOpen.length - 1) {
       setPuertaSeleccionada(puertaSeleccionada + 1)
     }
   }
@@ -20,11 +20,11 @@ export default function Puertas() {
   return (
     <div>
       <h1>Puertas</h1>
-      <p><img src={process.env.PUBLIC_URL + "/imagenes/" + puertasOnOff[puertaSeleccionada]} alt="bandera" /></p>
+      <p><img src={process.env.PUBLIC_URL + "/imagenes/" + puertasCloseOpen[puertaSeleccionada]} alt="bandera" /></p>
       <p>
         <input type="button" value="<" onClick={puertaPrevia} />
         <input type="button" value=">" onClick={puertaSiguiente} />
-        {puertasOnOff[puertaSeleccionada]}
+        {puertasCloseOpen[puertaSeleccionada]}
       </p>
     </div>
   )
