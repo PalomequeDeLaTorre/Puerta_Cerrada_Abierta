@@ -1,21 +1,25 @@
 import React from 'react';
 
 export default function Puertas() {
-  const puertaOpenClose = ['puertaCerrada.jpg', 'puertaAbierta.jpg'];
-  const [puertaSelect, setPuertaSelect] = React.useState(false);
+  const puertasOpenClose = ['puertaCerrada.jpg', 'puertaAbierta.jpg'];
+  const [puertaSelect, setPuertaSelect] = React.useState(0);
 
-  const botonPuerta = () => {
-    setPuertaSelect(!puertaSelect);
-  };
+  function botonPuerta() {
+    if (puertaSelect === 0) {
+      setPuertaSelect(1);
+    } else {
+      setPuertaSelect(0);
+    }
+  }
 
   return (
     <div>
-      <h1>Puerta: Abrir y Cerrar</h1>
+      <h1>Puerta: Abrir / Cerrar</h1>
       <p>
-        <img src={process.env.PUBLIC_URL + '/imagenes/' + (puertaSelect ? puertaOpenClose[1] : puertaOpenClose[0])} alt="puerta"/>
+        <img src={process.env.PUBLIC_URL + "/imagenes/" + puertasOpenClose[puertaSelect]} alt="bandera" />
       </p>
       <p>
-        <input type="button" value={puertaSelect ? 'Cerrar' : 'Abrir'} onClick={botonPuerta} />
+        <input type="button" value="Abrir / Cerrar" onClick={botonPuerta} />
       </p>
     </div>
   );
