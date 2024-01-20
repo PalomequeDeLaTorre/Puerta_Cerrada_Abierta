@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Puertas() {
-  const puertasOpenClose = ['puertaCerrada.jpg', 'puertaAbierta.jpg'];
+  const puertaOpenClose = ['puertaCerrada.jpg', 'puertaAbierta.jpg'];
   const [puertaSelect, setPuertaSelect] = React.useState(false);
 
   const botonPuerta = () => {
@@ -12,7 +12,7 @@ export default function Puertas() {
     <div>
       <h1>Puerta: Abrir y Cerrar</h1>
       <p>
-        <img src={process.env.PUBLIC_URL + '/imagenes/' + (puertaSelect ? puertasOpenClose[1] : puertasOpenClose[0])} alt="puerta"/>
+        <img src={process.env.PUBLIC_URL + '/imagenes/' + (puertaSelect ? puertaOpenClose[1] : puertaOpenClose[0])} alt="puerta"/>
       </p>
       <p>
         <input type="button" value={puertaSelect ? 'Cerrar' : 'Abrir'} onClick={botonPuerta} />
