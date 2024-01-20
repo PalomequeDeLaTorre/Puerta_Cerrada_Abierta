@@ -16,7 +16,7 @@ export default function Puertas() {
     <div>
       <h1>Puerta: Abrir / Cerrar</h1>
       <p>
-        <img src={process.env.PUBLIC_URL + "/imagenes/" + puertasOpenClose[puertaSelect]} alt="bandera" />
+        <img src={process.env.PUBLIC_URL + "/imagenes/" + puertasOpenClose[puertaSelect]} alt="puerta" />
       </p>
       <p>
         <input type="button" value="Abrir / Cerrar" onClick={botonPuerta} />
