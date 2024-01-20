@@ -1,31 +1,22 @@
-import React from 'react'
+import React from 'react';
 
 export default function Puertas() {
-  const puertasCloseOpen = ['puertaCerrada.jpg', 'puertaAbierta.jpg']
+  const puertasOpenClose = ['puertaCerrada.jpg', 'puertaAbierta.jpg'];
+  const [puertaSelect, setPuertaSelect] = React.useState(false);
 
-  const [puertaSelect, setPuertaSelect] = React.useState(0)
-
-  function puertaSiguiente() {
-    if (puertaSelect < puertasCloseOpen.length - 1) {
-      setPuertaSelect(puertaSelect + 1)
-    }
-  }
-
-  function puertaPrevia() {
-    if (puertaSelect > 0) {
-      setPuertaSelect(puertaSelect - 1)
-    }
-  }
+  const botonPuerta = () => {
+    setPuertaSelect(!puertaSelect);
+  };
 
   return (
     <div>
-      <h1>Puertas</h1>
-      <p><img src={process.env.PUBLIC_URL + "/imagenes/" + puertasCloseOpen[puertaSelect]} alt="bandera" /></p>
+      <h1>Puerta: Abrir y Cerrar</h1>
       <p>
-        <input type="button" value="<" onClick={puertaPrevia} />
-        <input type="button" value=">" onClick={puertaSiguiente} />
-        {puertasCloseOpen[puertaSelect]}
+        <img src={process.env.PUBLIC_URL + '/imagenes/' + (puertaSelect ? puertasOpenClose[1] : puertasOpenClose[0])} alt="puerta"/>
+      </p>
+      <p>
+        <input type="button" value={puertaSelect ? 'Cerrar' : 'Abrir'} onClick={botonPuerta} />
       </p>
     </div>
-  )
+  );
 }
